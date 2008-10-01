@@ -426,47 +426,72 @@ subtitle()
 # FIG. 6.6. numerical approximation in space             #
 #####################################################
 par(las=0)
-par(mfrow=c(1,1))
-layout(matrix(nr=2,nc=2,c(1,1,2,3)))
-par(mar=c(5,2,5,2))
+par(mfrow=c(2,2))
+par(mar=c(2,2,2,1))
 emptyplot(xlim = c(0,0.8),ylim = c(-0.25,0.8))
 box(col="grey")
-basemid <-  c(0.4,-0.1)
-dy <- 0.15
+basemid <-  c(0.4,0)
+dy <- 0.115
 ds <- 0.05
-straightarrow(c(0.4,0.8),c(0.4,-0.3),arr.pos=1,arr.type="triangle",arr.len=0.3)
-for (i in 1:6) 
+straightarrow(c(0.4,0.75),c(0.4,-0.175),arr.pos=1,arr.type="triangle",arr.len=0.3)
+for (i in 1:6)
 filledcylinder(ry=0.2,rx=ds,len=dy, mid=basemid+c(0.,(i-1)*dy),angle=90,dr=0.01,
              col=grey(0.3+i*0.1),lwd=1,topcol=grey(0.3+i*0.1),lcol="black")
-lines(c(0.4,0.4),c(0.8,0.72),lwd=2)
-lines(c(0.4,0.4),c(0.72,-0.25),lwd=1,lty=2)
-text(0.72,-0.1,expression(x[6]),cex=1.5)
-text(0.72,-0.1+dy,expression(x[5]),cex=1.5)
-text(0.72,-0.1+2*dy,expression(x[4]),cex=1.5)
-text(0.72,-0.1+3*dy,expression(x[3]),cex=1.5)
-text(0.72,-0.1+4*dy,expression(x[2]),cex=1.5)
-text(0.72,-0.1+5*dy,expression(x[1]),cex=1.5)
+lines(c(0.4,0.4),c(0.75,0.625),lwd=2)
+lines(c(0.4,0.4),c(0.625,-0.15),lwd=1,lty=2)
+ii <- -0
+text(0.72,-ii,expression(x[6]),cex=1.5)
+text(0.72,-ii+dy,expression(x[5]),cex=1.5)
+text(0.72,-ii+2*dy,expression(x[4]),cex=1.5)
+text(0.72,-ii+3*dy,expression(x[3]),cex=1.5)
+text(0.72,-ii+4*dy,expression(x[2]),cex=1.5)
+text(0.72,-ii+5*dy,expression(x[1]),cex=1.5)
 writelabel("A",at=-0.05,line=0)
-par(mar=c(2,1,2,1))
+
+emptyplot()
+box(col="grey")
+basemid <-  c(0.4,0.3)
+dy <- 0.3
+TXT <- c(expression(Delta~x[i+1]),expression(Delta~x[i]))
+for (i in 1:2)
+{
+filledrectangle(wx=0.5,wy=dy,mid=basemid+c(0,(i-1)*dy),col="grey",lcol="black")
+text(basemid[1]-0.05,basemid[2]+(i-1)*dy,TXT[i],cex=1.5,adj=0)
+straightarrow(basemid+c(-0.1,(i-1.5)*dy),basemid+c(-0.1,(i-0.5)*dy),arr.pos=1,
+              arr.type="triangle",arr.adj=1)
+straightarrow(basemid+c(-0.1,(i-0.5)*dy),basemid+c(-0.1,(i-1.5)*dy),arr.pos=1,
+              arr.type="triangle",arr.adj=1)
+}
+
+straightarrow(basemid+c(0.35,(0)*dy),basemid+c(0.35,(1.)*dy),arr.pos=1,
+              arr.type="triangle",arr.adj=1)
+straightarrow(basemid+c(0.35,(1)*dy),basemid+c(0.35,(0)*dy),arr.pos=1,
+              arr.type="triangle",arr.adj=1)
+text(basemid[1]+0.4,basemid[2]+(0.5)*dy,expression(Delta~x["i,i+1"]),cex=1.5,adj=0)
+
+text(0.5,0.9,"Distances",cex=1.5)
+writelabel("B",at=-0.05,line=0)
+
+
 emptyplot()
 box(col="grey")
 basemid <-  c(0.5,0.3)
 dy <- 0.2
-txt <- c(expression(C[i+1]),expression(C[i]),expression(C[i-1]))
-for (i in 1:2) 
+txt <- c(expression(C[i+1]),expression(C[i+1]),expression(C[i]))
+for (i in 1:2)
 filledrectangle(wx=0.5,wy=dy,mid=basemid+c(0,(i-1)*dy),col="grey",lcol="black")
-text(basemid[1]+0.325,basemid[2]+dy,"i-1",cex=1.5)
-text(basemid[1]+0.325,basemid[2]   ,"i",cex=1.5)
+text(basemid[1]+0.325,basemid[2]+dy,"i",cex=1.5)
+text(basemid[1]+0.325,basemid[2]   ,"i+1",cex=1.5)
 for (i in 1:2) text(basemid[1],basemid[2]+(i-1)*dy,txt[i+1],cex=1.5)
 
 text(0.5,0.9,"Concentrations",cex=1.5)
-writelabel("B",at=-0.05,line=0)
+writelabel("C",at=-0.05,line=0)
 
 emptyplot()
 box(col="grey")
 basemid <-  c(0.5,0.2)
 dy <- 0.2
-for (i in 1:3) 
+for (i in 1:3)
 filledrectangle(wx=0.5,wy=dy,mid=basemid+c(0,(i-1)*dy),col="grey",lcol="black")
 straightarrow(basemid+c(-0.1,2*dy-0.065),basemid+c(-0.1,dy+0.065),arr.pos=1,arr.type="triangle",arr.len=0.3)
 straightarrow(basemid+c(-0.1,dy-0.065),basemid+c(-0.1,0.065),arr.pos=1,arr.type="triangle",arr.len=0.3)
@@ -485,9 +510,9 @@ text(basemid[1]-0.4,basemid[2]+0.5*dy,expression(Flux["i,i+1"]),cex=1.5)
 
 
 text(0.5,0.9,"Fluxes",cex=1.5)
-writelabel("C",at=-0.05,line=0)
-subtitle()
+writelabel("D",at=-0.05,line=0)
 
+subtitle()
 ####################################
 # Fig. 6.7. Numerical diffusion
 ####################################

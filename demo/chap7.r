@@ -445,7 +445,7 @@ writelabel("B")
 #---------------------------------------------#
 xlim          <- c(0,10)            # axes limits
 ylim          <- c(0,10)
-par(new=F)
+par(new=FALSE)
 isopredprey( capacity=1e6)
 box()
 title("Neutral stability")
