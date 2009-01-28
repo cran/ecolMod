@@ -1,7 +1,7 @@
 \name{pricefit}
 \alias{pricefit}
 \title{Pseudo-random search algorithm of Price (1997)}
-\description{Pseudo-random search algorithm of Price (1997). Usesd in the book as an example of 
+\description{Pseudo-random search algorithm of Price (1997). Used in the book as an example of
 a random-based fitting technique, and as an example of how to create a function in R.}
 \usage{pricefit(par, minpar=rep(-1e8,length(par)),
 maxpar=rep(1e8,length(par)), func, npop=max(5*length(par),50),
@@ -10,7 +10,7 @@ numiter=10000, centroid = 3, varleft  = 1e-8,...)}
   \item{par }{initial values of the parameters to be optimised}
   \item{minpar }{minimal values of the parameters to be optimised}
   \item{maxpar }{maximal values of the parameters to be optimised}
-  \item{func }{function to be minimisedA function to be minimized, its first argument should bw the vector of parameters
+  \item{func }{function to be minimised, its first argument should bw the vector of parameters
     over which minimization is to take place. It should return a scalar result, the model cost, e.g the sum of squared residuals.}
   \item{npop }{number of elements in population}
   \item{numiter }{number of iterations to be performed. Defaults to 10000. There is no other stopping criterion. }
@@ -50,5 +50,14 @@ curve(p3$par[1]*sin(2*pi*x/p3$par[2]+p3$par[3]),lty=1,add=TRUE)
 legend ("bottomright",lty=c(1,2,3),c("Price","Mathematical","Simulated annealing"))}
 \details{see the book of Soetaert and Herman for a description of the algorithm AND for a line to line explanation of the function code.}
 \seealso{\code{\link{optim}} the R default.}
+\references{
+Soetaert, K. and P.M.J. Herman, 2009.
+A Practical Guide to Ecological Modelling. Using R as a Simulation Platform.
+ Springer, 372 pp.
+
+Price, W.L., 1977.  A controlled random search procedure for global optimisation.
+The Computer Journal, 20: 367-370.
+}
+
 \keyword{optimize}
 

@@ -25,8 +25,8 @@ Solutions to model projects are in the same subdirectories.
   \tabular{ll}{
     Package: \tab ecolMod\cr
     Type: \tab Package\cr
-    Version: \tab 1.2\cr
-    Date: \tab 2008-10-14\cr
+    Version: \tab 1.3\cr
+    Date: \tab 2009-01-28\cr
     License: \tab GNU Public License 2 or above\cr
   }
 }
@@ -34,6 +34,7 @@ Solutions to model projects are in the same subdirectories.
   Karline Soetaert (Maintainer) and Peter M.J. Herman
 }
 \seealso{
+\itemize{
  \item \code{\link{OMEXDIAsteady}} steady-state application of the OMEXDIA
                         diagenetic model - a fortran DLL
  \item \code{\link{SCOC}} a Sediment Community Oxygen Consumption (SCOC) dataset
@@ -41,6 +42,7 @@ Solutions to model projects are in the same subdirectories.
  \item \code{\link{deepCmin}}  results of the calibration exercise from chapter 4.4.4
  \item \code{\link{dilution}}  Draws dilution culture setup
  \item \code{\link{pricefit}}  Pseudo-random search algorithm of Price (1997)
+}
 }
 \examples{
 \dontrun{

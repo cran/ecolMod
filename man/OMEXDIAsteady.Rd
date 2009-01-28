@@ -3,12 +3,13 @@
 \title{steady-state application of the OMEXDIA diagenetic model - fortran DLL}
 \description{A 1-D model of Carbon, nitrogen and oxygen diagenesis in a marine sediment.
 \cr The model describes six state variables, in \bold{100} layers:
+  \itemize{
 \item 2 fractions of organic carbon (FDET,SDET): fast and slow decaying, solid substance
 \item Oxygen (O2), dissolved substance
 \item Nitrate (NO3), dissolved substance
 \item Ammonium (NH3), dissolved substance
 \item Oxygen demand unit (ODU), dissolved substance, as lump sum of all reduced substances other than ammonium
-
+}
 See Soetaert et al., 1996 for further details of the model.
 
 This is a simplified version of the OMEXDIA model, added just to create a figure in the book.
