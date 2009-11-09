@@ -20,7 +20,7 @@ C given species nr per cell and replacement probability, performs nstep steps an
 C returns the updated species composition at each grid point for the final time step
 C also returns the summed densities at each time step
 
-       call sRand(seed)
+C       call sRand(seed)    ! provokes an error on SUN - so it was removed
        DO I = 1,nstep
          DO J = 1, ncell
            DO K = 1, ncell
