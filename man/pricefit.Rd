@@ -3,9 +3,11 @@
 \title{Pseudo-random search algorithm of Price (1997)}
 \description{Pseudo-random search algorithm of Price (1997). Used in the book as an example of
 a random-based fitting technique, and as an example of how to create a function in R.}
-\usage{pricefit(par, minpar=rep(-1e8,length(par)),
-maxpar=rep(1e8,length(par)), func, npop=max(5*length(par),50),
-numiter=10000, centroid = 3, varleft  = 1e-8,...)}
+\usage{
+pricefit(par, minpar = rep(-1e8, length(par)),
+         maxpar = rep(1e8, length(par)), func, 
+         npop = max(5*length(par),50),
+         numiter =10000, centroid = 3, varleft = 1e-8,...)}
 \arguments{
   \item{par }{initial values of the parameters to be optimised}
   \item{minpar }{minimal values of the parameters to be optimised}
@@ -33,21 +35,26 @@ period <- 5
 phase  <- 0.5
 
 x <- runif(20)*13 
-y <- amp*sin(2*pi*x/period+phase) +rnorm(20,mean=0,sd=0.05)
-plot(x,y,pch=16)
+y <- amp*sin(2*pi*x/period+phase) + rnorm(20, mean = 0, sd = 0.05)
+plot(x, y, pch = 16)
 
 
 cost <- function(par) sum((par[1]*sin(2*pi*x/par[2]+par[3])-y)^2)
 
-p1 <- optim(par=c(amplitude=1,phase=1,period=1), cost)
-p2 <- optim(par=c(amplitude=1,phase=1,period=1), cost,method="SANN")
-p3 <- pricefit(par=c(amplitude=1,phase=1,period=1),minpar=c(0,1e-8,0),
-               maxpar=c(100,2*pi,100), func=cost,numiter=3000)
+p1 <- optim(par = c(amplitude = 1, phase = 1, period = 1), cost)
+p2 <- optim(par = c(amplitude = 1, phase = 1, period = 1), cost,
+            method = "SANN")
+p3 <- pricefit(par = c(amplitude = 1, phase = 1, period = 1),
+            minpar = c(0, 1e-8,0), maxpar = c(100, 2*pi,100), 
+            func = cost, numiter = 3000)
 
-curve(p1$par[1]*sin(2*pi*x/p1$par[2]+p1$par[3]),lty=2,add=TRUE)
-curve(p2$par[1]*sin(2*pi*x/p2$par[2]+p2$par[3]),lty=3,add=TRUE)
-curve(p3$par[1]*sin(2*pi*x/p3$par[2]+p3$par[3]),lty=1,add=TRUE)
-legend ("bottomright",lty=c(1,2,3),c("Price","Mathematical","Simulated annealing"))}
+curve(p1$par[1]*sin(2*pi*x/p1$par[2] + p1$par[3]), lty = 2, add = TRUE)
+curve(p2$par[1]*sin(2*pi*x/p2$par[2] + p2$par[3]), lty = 3, add = TRUE)
+curve(p3$par[1]*sin(2*pi*x/p3$par[2] + p3$par[3]), lty = 1, add = TRUE)
+
+legend ("bottomright", lty = c(1, 2, 3),
+        c("Price", "Mathematical", "Simulated annealing"))}
+
 \details{see the book of Soetaert and Herman for a description of the algorithm AND for a line to line explanation of the function code.}
 \seealso{\code{\link{optim}} the R default.}
 \references{

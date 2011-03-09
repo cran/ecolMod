@@ -25,7 +25,7 @@ FDET(0-100), SDET(101-200), O2 (201-300), NO3 (301-400), NH3 (401-500) and ODU (
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{N      <- 100
-Depth  <- seq(0.05,by=0.1,len=100)
+Depth  <- seq(0.05, by = 0.1, len = 100)
 out    <- OMEXDIAsteady()
 
 # Steady-state concentrations in sediment
@@ -40,15 +40,15 @@ ODU   <- CONC[(5*N+1):(6*N)]
 
 TOC  <- (FDET+SDET)*1200/10^9/2.5     # % organic carbon (excess)
 
-par(mfrow=c(2,2))
-plot(TOC,Depth,ylim=c(10,0),xlab="procent" ,main="TOC",
-        type="l",lwd=2)
-plot(O2,Depth,ylim=c(10,0),xlab="mmol/m3" ,main="O2",
-        type="l",lwd=2)
-plot(NO3,Depth,ylim=c(10,0),xlab="mmol/m3" ,main="NO3",
-        type="l",lwd=2)
-plot(NH3,Depth,ylim=c(10,0),xlab="mmol/m3" ,main="NH3",
-        type="l",lwd=2)
+par(mfrow=c(2, 2))
+plot(TOC, Depth, ylim = c(10, 0), xlab = "procent", main = "TOC",
+        type = "l", lwd=2)
+plot(O2, Depth, ylim = c(10, 0), xlab = "mmol/m3", main = "O2",
+        type = "l", lwd = 2)
+plot(NO3, Depth, ylim = c(10, 0), xlab = "mmol/m3", main = "NO3",
+        type = "l", lwd = 2)
+plot(NH3, Depth, ylim = c(10, 0), xlab = "mmol/m3", main = "NH3",
+        type = "l", lwd = 2)
 
 
 mtext(outer=TRUE,side=3,line=-2,cex=1.5,"OMEXDIAmodel")}

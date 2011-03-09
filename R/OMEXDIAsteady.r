@@ -60,7 +60,7 @@ Db     <- rep(1/365,101)
 
 # First the steady-state condition
 OC   <- rep(10,6*N)
-DIA  <- steady.band(y=OC,fun="omexdiamod",initfun="initomexdia",
+DIA  <- steady.band(y=OC,func="omexdiamod",initfunc="initomexdia",
                    initpar=c(parms,dx,dx.int,
                    pormid,porint,Db),nspec=6,
                    dllname="ecolMod",nout=8,positive=TRUE)
