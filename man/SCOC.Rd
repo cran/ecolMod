@@ -12,7 +12,7 @@ performing log-log regression with water depth.}
 \format{a dataframe with 584 rows, and with following columns:
 \cr Depth.m, the water depth at which the measurement was performed.
 \cr SCOC.mmol/m2/d, the oxygen consumption rate of the sediment, [mmolO2/m2/d]}
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{
 plot(SCOC[,1], SCOC[,2], log = "xy", xlab = "water depth, m",
      ylab = "", main = "SCOC, mmol O2/m2/d", pch = 16,

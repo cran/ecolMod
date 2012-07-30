@@ -230,7 +230,7 @@ oxygen <- function (time, O2, pars)
 
 CONC  <- steady.1D (runif(N),func=oxygen,nspec=1,atol=1e-10,time=0)
 O2    <- CONC$y
-plot(x,O2,xlab="distance, cm",ylab="oxygen, µmol/l")
+plot(x,O2,xlab="distance, cm",ylab="oxygen, mumol/l")
 lines(x, BW+Q/(4*Da)*(x^2-R^2))
 legend ("topleft",lty=c(1,NA),pch=c(NA,1),c("analytical solution","numerical approximation"))
 writelabel("A")
@@ -245,7 +245,7 @@ Ai  <- 2*pi*xi*L                   # surface at layer interface
 
 CONC  <- steady.1D (runif(N),func=oxygen,nspec=1,atol=1e-10,time=0)
 O2    <- CONC$y
-plot(x,O2,xlab="distance, cm",ylab="oxygen, µmol/l")
+plot(x,O2,xlab="distance, cm",ylab="oxygen, mumol/l")
 lines(x, BW+Q/(4*Da)*(x^2-R^2))
 legend ("topleft",lty=c(1,NA),pch=c(NA,1),c("analytical solution","numerical approximation"))
 writelabel("B")
@@ -254,7 +254,7 @@ writelabel("B")
 times<- seq(0,1/24,length.out=120)
 out   <-as.data.frame(ode.band(O2,times,func=oxygen,parms=0,rtol=1e-10,atol=1e-10,nspec=1))
 oxy   <- out[,2:101]
-plot(times*24,out$BWO2,xlab="time, hour",ylab="µmol/l", main="BW concentration",type="l", lwd=2)
+plot(times*24,out$BWO2,xlab="time, hour",ylab="mumol/l", main="BW concentration",type="l", lwd=2)
 writelabel("C")
 image(times*24,y=x,z=as.matrix(oxy),xlab="time, hour",ylab="distance ",main="Dynamic simulation",col=femmecol(100))
 contour(times*24,y=x,z=as.matrix(oxy),add=TRUE)

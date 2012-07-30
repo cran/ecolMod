@@ -48,7 +48,7 @@ KN           <- Kn(0,30,0)         # mol/kg , equilibrium ct at 30dgC
 curve (KN/(KN+10^(-x)),from=6,to=12,lwd=2,xlab="pH",ylab="-",main="fraction ammonia")
 KN           <- Kn(0,0,0)          # mol/kg , equilibrium ct at 0 dgC
 curve (KN/(KN+10^(-x)),lwd=1,lty=2,add=TRUE)
-legend("bottomright",c("30°C","0°C"), lty=c(1,2),lwd=c(2,1))
+legend("bottomright",c("30 dgC","0dgC"), lty=c(1,2),lwd=c(2,1))
 writelabel("B")
 subtitle()
 
@@ -234,11 +234,11 @@ with(as.list(c(state,parameters)),{
 #-----------------------#
 
 parameters<-c(maxGrowth   =0.125,      #molN/molN/hr  Maximal growth rate
-              ksPAR       =100,        #µEinst/m2/s   Half-saturation ct for light-limited growth
+              ksPAR       =100,        #muEinst/m2/s  Half-saturation ct for light-limited growth
               ksDIN       =1.0,        #mmolN/m3      Half-saturation ct of N uptake Phytoplankton
               respRate    =0.001,      #/h            Respiration rate
               CNratio     =6.5,        #molC/molN     carbon:Nitrogen ratio
-              parDay      =250.,       #µEinst/m2/s   PAR during the light phase
+              parDay      =250.,       #muEinst/m2/s  PAR during the light phase
               dayLength   =12.         #hours         Length of illuminated period (in one day)
               )
 Salinity     <- 0

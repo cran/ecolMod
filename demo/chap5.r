@@ -196,17 +196,17 @@ par(mfrow=c(2,2))
  par(mar=c(5.1,4.1,4.1,2.1))
 plot  (rr,sandwich(Da,Q,BW,R,rr),lwd=2,lty=1,
        ylim=c(0,BW), type="l",main="oxygen in organism" ,
-       xlab="radius,cm",ylab="µmol/l")
+       xlab="radius,cm",ylab="mumol/l")
 lines (rr,cylinder(Da,Q,BW,R,rr),lwd=2,lty=2)
 lines (rr,sphere  (Da,Q,BW,R,rr),lwd=2,lty=3)
 legend("top",c("sheet","cylinder","sphere"),lty=1:3,lwd=2)
 writelabel("A")
 
 plot  (rr,cylinder(Da,Q,BW,R,rr),ylim=c(0,BW), type="l",lwd=2,
-       xlab="radius,cm",ylab="O2, µmol/l",main="cylinder" )
+       xlab="radius,cm",ylab="O2, mumol/l",main="cylinder" )
 lines (rr*0.5,cylinder(Da,Q,BW,R*0.5,rr*0.5),lwd=2,lty=2)
 lines (rr*0.25,cylinder(Da,Q,BW,R*0.25,rr*0.25),lwd=2,lty=3)
-legend("bottom",legend=c("100µm","50µm","25µm"),title="maximal thickness",lty=1:3,lwd=2)
+legend("bottom",legend=c("100mum","50mum","25mum"),title="maximal thickness",lty=1:3,lwd=2)
 writelabel("B")
 
 critsand <- function(Da,Q,BW)  sqrt(BW*2*Da/Q)
@@ -215,7 +215,7 @@ critsph  <- function(Da,Q,BW)  sqrt(BW*6*Da/Q)
 
 BWseq <- seq(0,50,length=100)
 plot(BWseq,10000*sqrt(BWseq*6*Da/Q),type="l",lty=3,lwd=2,
-    main="critical thickness", xlab="surrounding oxygen, µmol/l",ylab="µm")
+    main="critical thickness", xlab="surrounding oxygen, mumol/l",ylab="mum")
 lines(BWseq,10000*sqrt(BWseq*4*Da/Q),lty=2,lwd=2)
 lines(BWseq,10000*sqrt(BWseq*2*Da/Q),lty=1,lwd=2)
 legend("bottomright",c("sheet","cylinder","sphere"),lty=1:3,lwd=2)

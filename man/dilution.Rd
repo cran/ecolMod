@@ -14,7 +14,7 @@
   \item{p1 }{two-valued vector with the x-y positions of the middle of the (large) culture vessel}
   \item{p2 }{two-valued vector with the x-y positions of the middle of the (small) medium vessel}
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{par(mar = c(0, 0, 0, 0))                         
 dd <- dilution(main = c("Stock", "Stirred tank"), int = "Flow,Q")
 text(dd$p2[1], dd$p2[2], "Ain", font = 2)

@@ -1071,7 +1071,7 @@ rDissSi  <- 0.005            # dissolution rate, /day
 EquilSi  <- 800             # equilibrium concentration
 pow      <- 1
 BSidepo  <- 0.2*100          # nmol/cm2/day
-bwDSi    <- 150              # µmol/l  
+bwDSi    <- 150              # mumol/l  
 
 # initial guess of state variables-just random numbers between 0,1
 Conc     <- runif(2*N) 

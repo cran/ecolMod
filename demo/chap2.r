@@ -536,7 +536,7 @@ textrect(elpos[2,],sx,sy,lab="PREY",shadow.size=0.02)
 textrect(elpos[3,],sx,sy,lab="PREDATOR",shadow.size=0.02)
 Arrows(0.75,0.97,elpos[2,1],0.72,code=2,arr.type="triangle",arr.adj=1,lwd=2)
 Arrows(elpos[1,1],0.55,0.75,0.4,code=2,arr.type="triangle",arr.adj=1,lwd=2)
-text(0.6,0.93,"µ",cex=1.3)
+text(0.6,0.93,"mu",cex=1.3)
 text(0.8,0.45,expression(1-gamma),cex=1.3,adj=0)
 text(0.45,0.45,expression(gamma),cex=1.3,adj=0.5)
 text(0.5,0.05,"r",cex=1.3,adj=0.5)
@@ -714,7 +714,7 @@ par(oma = c(0,0,3,0))
 par(mfrow=c(2,2))
 # radiation as a sine with random component, period 1 year, paramters per day
 
-meanRad   <-      530       #    µEinst/m2/s
+meanRad   <-      530       #    muEinst/m2/s
 ampRad    <-      0.85      #    -
 phaseRad  <-      -1.4      #    -
 periodRad <-      365       #    hours
@@ -729,12 +729,12 @@ for ( i in 1:length(tseq))
   RadRan <- RadRan*(1-1/tefoldRanRad)+ SolSine[i]/(meanRad+ampRad)*ampRanRad*(runif(1)-0.5)
   SolSine[i] <- SolSine[i]+RadRan}
 
-plot(tseq,SolSine,xlab="day",ylab="µEinst/m2/s",main="Solar radiation",type="l")
+plot(tseq,SolSine,xlab="day",ylab="muEinst/m2/s",main="Solar radiation",type="l")
 writelabel("A")
 # vertical extinction of light
 x <- seq(0,100,0.1)
 light <- 1200*exp(-0.075*x)
-plot(light,x,ylim=c(100,0),ylab="depth,m",xlab="µEinst/m2/s",type="l",
+plot(light,x,ylim=c(100,0),ylab="depth,m",xlab="muEinst/m2/s",type="l",
      lwd=2,main="Light extinction in water")
 
 text(200,50,expression (I==I[0]*e^{-lambda*I}))
@@ -745,7 +745,7 @@ writelabel("B")
 iopt  <- 200
 beta  <- 0.005
 pmax <- 2
-curve(expr=pmax*(2*(1+beta)*x/iopt)/((x/iopt)^2+2*beta*x/iopt+1),-50,500,xlab="µEinst/m2/s",ylab="/d",
+curve(expr=pmax*(2*(1+beta)*x/iopt)/((x/iopt)^2+2*beta*x/iopt+1),-50,500,xlab="muEinst/m2/s",ylab="/d",
       main="Photosynthesis versus light",lwd=2)
 text(50,0.6,"quasi-linear",adj=0,font=3,cex=1.2)
 text(130,1.75,"saturation",adj=0,font=3,cex=1.2)
@@ -791,7 +791,7 @@ exp   <- expression (frac(I ,iopt) %*% e^(1-I/iopt))
 
 # parameter
 iopt  <- 150
-curve(x/iopt*exp(1-x/iopt),0,500,lwd=2,xlab=expression("I, µEinst"~ m^{-2}~s^{-1}),ylab="-",main="1-par" )
+curve(x/iopt*exp(1-x/iopt),0,500,lwd=2,xlab=expression("I, muEinst"~ m^{-2}~s^{-1}),ylab="-",main="1-par" )
 legend("bottomright","Steele",lty=1,lwd=2)
 writelabel("A")
 
@@ -799,7 +799,7 @@ writelabel("A")
 #----------------
 ks<-50
 exp <- expression (frac(I ,sqrt(I^2 + iopt^2)))
-curve(x/ sqrt(x*x+iopt*iopt),0,500,lwd=2,xlab=expression("I, µEinst"~ m^{-2}~s^{-1}),ylab="-",main="1-par" )
+curve(x/ sqrt(x*x+iopt*iopt),0,500,lwd=2,xlab=expression("I, muEinst"~ m^{-2}~s^{-1}),ylab="-",main="1-par" )
 curve(x/(ks+x),add=TRUE,lwd=2,lty=2)
 legend("bottomright",c("Evans","Monod"),lty=1:2,lwd=2)
 writelabel("B")
@@ -812,7 +812,7 @@ beta      <- 0.005
 pmax      <- 2
 
 curve(pmax*(1-exp(-x*alpha/pmax)) * exp(-beta*x/pmax),0,500,lwd=2,
-     xlab=expression("I, µEinst"~ m^{-2}~s^{-1}),ylab="-",main="2-par" ,ylim=c(0,1))
+     xlab=expression("I, muEinst"~ m^{-2}~s^{-1}),ylab="-",main="2-par" ,ylim=c(0,1))
 curve((2*(1+beta)*x/iopt)/((x/iopt)^2+2*beta*x/iopt+1),add=TRUE,lwd=2,lty=2)
 legend ("bottomright",c("Platt","Eilers-Peeters"),lty=1:2,lwd=2)
 writelabel("C")
@@ -911,7 +911,7 @@ NPZD<-function(t,state,parameters)
 #-----------------------#
 
 parameters<-c(maxUptake          =1.0,       # /day
-              ksPAR              =140,       # µEinst/m2/s
+              ksPAR              =140,       # muEinst/m2/s
               ksDIN              =0.5,       # mmolN/m3
               maxGrazing         =1.0,       # /day
               ksGrazing          =1.0,       # mmolN/m3
@@ -957,9 +957,9 @@ out       <-as.data.frame(ode(state,times,NPZD,parameters))
 par(mar=c(5.1,4.1,4.1,2.1))
 par(mfrow=c(2,2), oma=c(0,0,3,0))   # set number of plots (mfrow) and margin size (oma)
 
-plot (times,out$PAR        ,type="l",lwd=2,main="PAR"        ,xlab="time, hours",ylab="µEinst/m2/s")
+plot (times,out$PAR        ,type="l",lwd=2,main="PAR"        ,xlab="time, hours",ylab="muEinst/m2/s")
 writelabel("A")
-plot (times,out$Chlorophyll,type="l",lwd=2,main="Chlorophyll",xlab="time, hours",ylab="µg/l")
+plot (times,out$Chlorophyll,type="l",lwd=2,main="Chlorophyll",xlab="time, hours",ylab="mug/l")
 writelabel("B")
 plot (times,out$ZOO        ,type="l",lwd=2,main="Zooplankton",xlab="time, hours",ylab="mmolN/m3")
 writelabel("C")
@@ -1083,7 +1083,7 @@ model<-function(t,state,parameters)
 
 parameters<-c(maxPhotoSynt   =0.125,      #molC/molC/hr      Maximal protein C-specific rate of photsynthesis at 20 dg
               rMortPHY       =0.001,      #/hr               Mortality rate of Phytoplankton (lysis and zooplankton grazing)
-              alpha          =-0.125/150, #µEinst/m2/s/hr    Light dependency factor
+              alpha          =-0.125/150, #muEinst/m2/s/hr   Light dependency factor
               pExudation     =0.0,        #-                 Part of photosynthesis that is exudated
               maxProteinSynt =0.136,      #molC/molC/hr      Maximal Biosynthetic C-specific N-uptake rate
               ksDIN          =1.0,        #mmolN/m3          Half-saturation ct of N uptake Phytoplankton
@@ -1098,7 +1098,7 @@ parameters<-c(maxPhotoSynt   =0.125,      #molC/molC/hr      Maximal protein C-s
               rNCProtein     =0.2,        #molN/molC         Nitrogen/carbon ratio of proteins
               inputDIN       =10.0,       #mmolN/m3          DIN in inflowing water
               rChlN          =1,          #gChl/molN         Chl to nitrogen ratio
-              parMean        =250.,       #µmolPhot/m2/s     PAR during the light phase
+              parMean        =250.,       #mumolPhot/m2/s    PAR during the light phase
               dayLength      =15.         #hours             Length of illuminated period
               )
 
@@ -1130,7 +1130,7 @@ par(mfrow=c(2,2), oma=c(0,0,3,0))         # set number of plots (mfrow) and marg
 col <- grey(0.9)
 ii <- 1:length(out$PAR)                   # output over entire period
 
-plot (times[ii],out$Chlorophyll[ii],type="l",main="Chlorophyll",xlab="time, hours",ylab="µg/l")
+plot (times[ii],out$Chlorophyll[ii],type="l",main="Chlorophyll",xlab="time, hours",ylab="mug/l")
 polygon(times[ii],out$PAR[ii]-10,col=col,border=NA);box()
 lines (times[ii],out$Chlorophyll[ii]  ,lwd=2 )
 

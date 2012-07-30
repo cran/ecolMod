@@ -17,7 +17,7 @@ performing log-log regression of organism rates versus size.}
 \cr Temp.dgC, the rearing temperature, [dg C]
 \cr Group, the systematic group to which the organism belongs, one of Nanoflagellate,
 Dinoflagellate, Ciliate, Rotifer, Meroplankton, Copepod}
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{
 ii <- which(Zoogrowth[ ,2]>0)
 plot(Zoogrowth[ii, 1], Zoogrowth[ii, 2], log = "xy",

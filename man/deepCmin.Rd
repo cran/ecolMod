@@ -8,7 +8,7 @@ chapter 4.4.4. They are:
 \cr vector \code{outcost}
 \cr matrices \code{optpar}, \code{optpar20}, \code{optpar25}}
 \usage{deepCmin}
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{
 pgr <- gray.colors(n = 25, start = 0.95, end = 0.0)
 with (deepCmin,

@@ -31,7 +31,7 @@ par(mar=c(5.1,4.1,4.1,2.1))
 ll <- c(0.,1,10,20,40,80,120,160,300,480,700)
 pp <- c(0.,1,3,4,6,8,10,11,10,9,8)
 
-plot(ll,pp,xlab= expression("light, µEinst"~ m^{-2}~s^{-1}),
+plot(ll,pp,xlab= expression("light, muEinst"~ m^{-2}~s^{-1}),
      ylab="production",pch=15,cex=1.5)
 
 fit<-nls(pp ~pmax*2*(1+b)*(ll/iopt)/
@@ -58,7 +58,7 @@ par (las=1)
 grow <- Zoogrowth
 scoc <- SCOC
 ii <- which(grow[,2]>0)
-plot(grow[ii,1],grow[ii,2],log="xy",xlab="zooplankton volume, µm3",ylab="" ,
+plot(grow[ii,1],grow[ii,2],log="xy",xlab="zooplankton volume, mum3",ylab="" ,
 main="maximal growth rate, /hr",pch=16,cex.main=1)
 
 #axis(2,at=c(1e-4,1e-3,1e-2,0.1,1),labels=c("0.0001","0.001","0.01","0.1","1"))

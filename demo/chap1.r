@@ -255,7 +255,7 @@ k100<- uniroot(cflux,c(0,1000),target=100)$root   # gC/m2/yr
 
 O210 <-O2conc(Ds,k=k10,BW,x)*(1+rnorm(200,0,0.05))
 plot (O210,x,ylim=rev(range(x)),xlim=c(0,BW),
-      xlab=expression("µmol l"^{~-1}),ylab="sediment depth, cm",main=expression(O[2]),col="grey")
+      xlab=expression("mumol l"^{~-1}),ylab="sediment depth, cm",main=expression(O[2]),col="grey")
 lines(O2conc(Ds,k=k10 ,BW,x),x,lty=1,lwd=1,col="black")
 legend("bottomright",pch=c(1,NA),lty=c(NA,1),c("measured concentration", "model output"))
 subtitle()

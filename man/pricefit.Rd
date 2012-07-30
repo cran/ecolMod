@@ -27,7 +27,7 @@ pricefit(par, minpar = rep(-1e8, length(par)),
   \item{poppar }{all parameter vectors remaining in the population, matrix of dimension (npop,length(par))}
   \item{popcost }{model costs associated with all population parameter vectors, vector of length npop}
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{pricefit  # will display the code 
 
 amp    <- 6

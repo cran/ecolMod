@@ -23,7 +23,7 @@ FDET(0-100), SDET(101-200), O2 (201-300), NO3 (301-400), NH3 (401-500) and ODU (
   \item{precis }{the precision of the steady-state solution}
   \item{Solved }{a logical, TRUE when steady-state has been reached }
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{N      <- 100
 Depth  <- seq(0.05, by = 0.1, len = 100)
 out    <- OMEXDIAsteady()

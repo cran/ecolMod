@@ -797,7 +797,7 @@ model<-function(t,state,parameters)
   MaxIngestion <- maxIngest*WeightFactor      # /day     
   Ingestion    <- MaxIngestion*INDWEIGHT*FOOD / (FOOD + ksFood)
 
-  Respiration  <- respirationRate * INDWEIGHT         # µgC/day 
+  Respiration  <- respirationRate * INDWEIGHT         # mugC/day 
   Growth       <- Ingestion*assimilEff - Respiration
 
   # Fraction of assimilate allocated to reproduction
@@ -832,7 +832,7 @@ Moulting   <- function ()
    with(as.list(c(state)),{  # unpack the state variables
  
    # Relationship moulting loss and length
-    refLoss   <-  0.24   #µgC
+    refLoss   <-  0.24   #mugC
     cLoss     <-  3.1    #-
 
     # Weight lost during molts depends allometrically on the organism length
@@ -847,12 +847,12 @@ Moulting   <- function ()
 # the model parameters: #
 #-----------------------#
 
-neonateWeight      <-  1.1    #µgC
-reproductiveWeight <-  7.5    #µgC
-maximumWeight      <- 60.0    #µgC
+neonateWeight      <-  1.1    #mugC
+reproductiveWeight <-  7.5    #mugC
+maximumWeight      <- 60.0    #mugC
 
-ksFood             <- 85.0    #µgC/l
-IngestWeight       <-132.0    #µgC
+ksFood             <- 85.0    #mugC/l
+IngestWeight       <-132.0    #mugC
 maxIngest          <-  1.05   #/day
 assimilEff         <-  0.8    #-
 
@@ -861,7 +861,7 @@ respirationRate    <-  0.25   #/day
 
 # Dilution parameters !
 transferTime       <-    2    # Days
-foodInMedium       <-  509    # µgC/l
+foodInMedium       <-  509    # mugC/l
 
 instarDuration     <-  3.0    # days
 numberIndividuals  <-   32    #   -
@@ -871,9 +871,9 @@ numberIndividuals  <-   32    #   -
 #-------------------------#
  
 state     <-c(
-  INDWEIGHT = neonateWeight      , # µgC
-  EGGWEIGHT = 0                  , # µgC    ! Total egg mass in a stage
-  FOOD      = foodInMedium         # µgC
+  INDWEIGHT = neonateWeight      , # mugC
+  EGGWEIGHT = 0                  , # mugC    ! Total egg mass in a stage
+  FOOD      = foodInMedium         # mugC
              )
 
 #----------------------#
@@ -922,9 +922,9 @@ while (Time < TimeEnd)
 par(mfrow=c(2,2), oma=c(0,0,3,0))   # set number of plots (mfrow) and margin size (oma)
 par(mar=c(5.1,4.1,4.1,2.1))
 plot (out$time,out$FOOD        ,type="l",main="Food"              ,xlab="time, days",ylab="gC/m3")
-plot (out$time,out$INDWEIGHT   ,type="l",main="individual weight" ,xlab="time, days",ylab="µgC")
-plot (out$time,out$EGGWEIGHT   ,type="l",main="egg weight"        ,xlab="time, days",ylab="µgC")
-plot (out$time,out$Ingestion   ,type="l",main="Ingestion"             ,xlab="time, days",ylab="µgC/day")
+plot (out$time,out$INDWEIGHT   ,type="l",main="individual weight" ,xlab="time, days",ylab="mugC")
+plot (out$time,out$EGGWEIGHT   ,type="l",main="egg weight"        ,xlab="time, days",ylab="mugC")
+plot (out$time,out$Ingestion   ,type="l",main="Ingestion"             ,xlab="time, days",ylab="mugC/day")
 
 mtext(outer=TRUE,side=3,"DAPHNIA model",cex=1.5)
 subtitle()
@@ -935,14 +935,14 @@ subtitle()
 
 par (mfrow=c(2,2))
 curve(maxIngest*(IngestWeight-x)/(IngestWeight-neonateWeight),0,60,
-      main="Max. ingestion rate",ylab="/d",xlab="ind. weight, µC",lwd=2) 
+      main="Max. ingestion rate",ylab="/d",xlab="ind. weight, mugC",lwd=2) 
 curve(pmax(0., maxReproduction * (1. - (reproductiveWeight/x)^2)),0,60,
       main="fraction assimilate to reproduction ",ylab="-",
-      xlab="ind. weight, µC",lwd=2) 
+      xlab="ind. weight, muC",lwd=2) 
 curve(((x /3.0))^(1/2.6),0,60,
-      main="Individual length",ylab="µm",xlab="ind. weight, µC",lwd=2) 
+      main="Individual length",ylab="mum",xlab="ind. weight, muC",lwd=2) 
 curve(0.24*((x /3.0)^(1/2.6))^3.1,0,60,
-      main="Weight loss during moulting",ylab="µg",xlab="ind. weight, µC",lwd=2) 
+      main="Weight loss during moulting",ylab="mug",xlab="ind. weight, mugC",lwd=2) 
 subtitle()
 
 ################################################
