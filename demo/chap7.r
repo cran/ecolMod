@@ -1002,6 +1002,7 @@ out   <-as.data.frame(ode(state,times,Lorenz,0))
 # PLOTTING model output: #
 #------------------------#
 par(mfrow=c(1,1))
+require(scatterplot3d)
 scatterplot3d(out$x,out$y,out$z,type="l",main="Lorenz butterfly",ylab="",
               grid=FALSE,box=FALSE)
 

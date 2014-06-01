@@ -26,12 +26,18 @@ subtitle <- function()
 
 
 
-
+# THIS example is toggled off - to avoid needing to install mapdata
 par(mar=c(2,0,2,0))
 par(mfrow=c(2,2))
 
-m<-map('worldHires', c('Belgium','Netherlands'))
-map.text('worldHires','Belgium',add=TRUE)   
+#in the book it uses 'mapdata ' here just maps...
+#require(mapdata)                                  
+#m<-map('worldHires', c('Belgium','Netherlands')) 
+#map.text('worldHires','Belgium',add=TRUE)   
+
+require(maps)
+m<-map('world', c('Belgium','Netherlands'))
+map.text('world','Belgium',add=TRUE)   
 text(5.5,52,"Netherlands")
 map.axes()
 
