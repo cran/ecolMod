@@ -14,18 +14,19 @@ C***********************************************************
        INTEGER neighbour(4)
        DOUBLE PRECISION  replacement(4),rep
        DOUBLE PRECISION  rnd
-       REAL  RAND 
+       DOUBLE PRECISION normrnd 
        
 C given species nr per cell and replacement probability, performs nstep steps and
 C returns the updated species composition at each grid point for the final time step
 C also returns the summed densities at each time step
 
 C       call sRand(seed)    ! provokes an error on SUN - so it was removed
+       CALL rndstart()
        DO I = 1,nstep
          DO J = 1, ncell
            DO K = 1, ncell
 
-             rnd = DBLE(Rand())
+             rnd = normrnd()
 
              ii = cell(J,K)
              
@@ -82,7 +83,7 @@ C cumulative probabilities
          ENDDO
 
        ENDDO
-       
+       CALL rndend()       
        END SUBROUTINE
        
        
