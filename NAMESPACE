@@ -1,7 +1,12 @@
-useDynLib(ecolMod)
+useDynLib(ecolMod, .registration = TRUE)
 import(rootSolve)
 import(shape) 
 import(diagram) 
 import(deSolve)
+
+importFrom("grDevices", "grey")
+importFrom("graphics", "arrows", "lines", "rect", "segments", "text")
+importFrom("stats", "runif")
+
 export(dilution, OMEXDIAsteady, pricefit)
 

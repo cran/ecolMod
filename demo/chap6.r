@@ -541,7 +541,7 @@ Growth<-function(t,Dens,parameters)
 growth   <- 1    # mm/day, the growth rate
 delx     <- 1    # mm      thickness of boxes
 numboxes <- 100
-size     <- seq(0.5,100,times.out=numboxes)
+size     <- seq(0.5,100,length.out=numboxes)
 
 # Initial condition
 Numini   <- 2
