@@ -13,7 +13,7 @@
 /* .Fortran calls */
 void F77_NAME(initomexdia)(void (* steadyparms)(int *, double *));
 void F77_NAME(omexdiamod)(int *, double *, double *, double *, double *, int *);
-void F77_NAME(lattice)(int *, int *, int *, double *, double *, double *, int *);
+void F77_NAME(lattice)(int *, int *, int *, int *, double *, int *, int *);
 
 R_FortranMethodDef FEntries[] = {
     {"initomexdia",    (DL_FUNC) &F77_SUB(initomexdia),     1},
